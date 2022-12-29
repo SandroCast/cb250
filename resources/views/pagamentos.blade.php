@@ -91,6 +91,7 @@
                                 <th>ID</th>
                                 <th>Valor</th>
                                 <th>Data</th>
+                                <th></th>
                             </tr>                
                         </thead>
 
@@ -102,7 +103,8 @@
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td>R$ {{number_format($item->valor, 2 , ",", ".")}}</td>
-                                        <td>{{date('d/m/Y', strtotime($item->created_at))}}</td>    
+                                        <td>{{date('d/m/Y', strtotime($item->created_at))}}</td>   
+                                        <td><a href="" style="color: red; text-decoration: none" onclick="abreModal({{$item->id}})"><b>x</b></a></td>
                                     </tr>
                         
                                 @endforeach
@@ -117,6 +119,32 @@
     
         </div>
 
+        <form action="" id="formExcluir" method="POST">
+            @csrf
+            <!-- Modal -->
+            <div id="myModalExcluir" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #555; color: white">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Excluir Comprovante</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Deseja realmente excluir o comprovante de número <span id="numero_comprovante"></span> ?</p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger" style="background-color: red">Excluir</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
 
 
         <!-- jQuery library -->
@@ -126,6 +154,19 @@
 
         <!-- Initialize Bootstrap functionality -->
         <script>
+
+            function abreModal($id){
+                event.preventDefault();
+
+                $("#numero_comprovante").html($id);
+
+                $("#formExcluir").attr('action', '/excluir/comprovante/'+$id);
+
+                $("#myModalExcluir").modal('show');
+                
+            }
+
+
             // Initialize tooltip component
             $(function () {
             $('[data-toggle="tooltip"]').tooltip()

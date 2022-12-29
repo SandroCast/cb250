@@ -22,3 +22,4 @@ Route::get('/administrador/AmAtOrY/sandrocastro', [CompraController::class, 'adm
 Route::get('/administrador/AmAtOrY/sandrocastro/novo', [CompraController::class, 'novo']);
 Route::get('/administrador/AmAtOrY/sandrocastro/pagamentos', [CompraController::class, 'pagamentos']);
 Route::post('/administrador/AmAtOrY/sandrocastro/novo/salvar', [CompraController::class, 'salvar']);
+Route::post('/excluir/comprovante/{id}', [CompraController::class, 'excluiComprovante']);

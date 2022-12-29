@@ -65,6 +65,19 @@ class CompraController extends Controller
 
     }
 
+    public function excluiComprovante($id, Request $request)
+    {
+
+        $comprovante = Historico::where('id', $id)->first();
+
+        if(!$comprovante)
+            return redirect()->back();
+            
+        $comprovante->delete();
+        
+        return redirect()->back();
+
+    }
 
 
 
