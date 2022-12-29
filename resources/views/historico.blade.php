@@ -28,42 +28,47 @@
                 border-bottom: 1px solid #999;
                 
             }
+
+            #nav_bar{
+                height: 50px;
+                background-color: #222222;
+                color: rgb(126, 126, 126);
+                padding-left: 10px;
+
+            }
+            #nav_bar > a:hover{
+                color: white;
+                text-decoration: none;
+            }
+    
+            .menus{
+                font-size: 15px;
+                color: rgb(126, 126, 126);
+                margin: 2px 5px;
+                padding: 12px 5px;
+                height: 46px;
+                float: right;
+                border-radius: 10px;
+            }
     
     
         </style>
 
     </head>
     <body>
-     
-        <nav class="navbar navbar-default m-0">
-            <div class="container-fluid">
-            
-                <!-- Brand/logo -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a style="font-size: 200%" class="navbar-brand" href="/">Honda CB250</a>
-                </div>
-                
-                <!-- Collapsible Navbar -->
-                <div class="collapse navbar-collapse" id="example-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Inicio <span class="sr-only">(current)</span></a></li>
-                        <li class="active"><a href="/historico">Histórico <span class="sr-only">(current)</span></a></li>
-                    </ul>
-                </div>
-            
-            </div>
-        </nav>
+
+
+        <div id="nav_bar">
+            <a style="font-size: 200%" href="/">CB250</a>
+
+            <a href="/historico" class="menus" style="background-color: #585858; color: white"> Comprovantes </a>
+            <a href="/" class="menus"> Inicio </a>
+        </div>
       
         <div class="contents" style="text-align: center;">
 
-            @if ($files->count() > 0)
-                @foreach ($files as $item)
+            @if ($historicos->count() > 0)
+                @foreach ($historicos as $item)
 
                     <div class="ico">
                         <div style="display: inline;font-size: 20px; float: left; color: green;">
@@ -81,11 +86,11 @@
                     </div>
 
                     <div style="color: green; font-weight: bold; font-size: 30px;">
-                        R$ {{number_format($item->description, 2 , ",", ".")}}
+                        R$ {{number_format($item->valor, 2 , ",", ".")}}
                     </div>
 
                     <div style="margin: 20px 20px 100px 20px">
-                        <img style="width: 100%" src="{{ $item->file_url }}" alt="">
+                        <img style="width: 100%" src="img\{{ $item->comprovante }}" alt="">
                     </div>
 
                 @endforeach

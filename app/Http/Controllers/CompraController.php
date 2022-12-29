@@ -18,7 +18,7 @@ class CompraController extends Controller
 
     public function historico()
     {
-        $historicos = Historico::all();
+        $historicos = Historico::orderBy('created_at', 'DESC')->get();
 
         return view('historico',compact('historicos'));
 
@@ -40,14 +40,15 @@ class CompraController extends Controller
 
     public function salvar(Request $request)
     {
-        $imagem = $request->image;
+        $imagem = $request->imagem;
         $extension = $imagem->extension();
         $imageName = strtotime('now') . '.' . $extension;
         $imagem->move(public_path('img'), $imageName);
 
         $novo = new Historico;
         $novo->valor = $request->valor;
-        $novo->foto = $imageName;
+        $novo->comprovante = $imageName;
+        $novo->created_at = $request->data;
         $novo->save();
 
         return redirect('/administrador/AmAtOrY/sandrocastro/pagamentos');
@@ -58,7 +59,7 @@ class CompraController extends Controller
 
     public function pagamentos()
     {
-        $pagamentos = Historico::all();
+        $pagamentos = Historico::orderBy('created_at', 'DESC')->get();
 
         return view('pagamentos',compact('pagamentos'));
 

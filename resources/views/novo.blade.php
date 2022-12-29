@@ -33,6 +33,26 @@
                 font-size: 20px;
                 color: green;
             }
+            #nav_bar{
+                height: 50px;
+                background-color: #222222;
+                color: rgb(126, 126, 126);
+                padding-left: 10px;
+
+            }
+            #nav_bar > a:hover{
+                color: white;
+                text-decoration: none;
+            }
+    
+            .menus{
+                font-size: 15px;
+                color: rgb(126, 126, 126);
+                margin: 2px 5px;
+                padding: 12px 5px;
+                height: 46px;
+                border-radius: 10px;
+            }
     
     
         </style>
@@ -40,32 +60,22 @@
     </head>
     <body>
      
-        <nav class="navbar navbar-default m-0">
-            <div class="container-fluid">
-            
-                <!-- Brand/logo -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a style="font-size: 200%" class="navbar-brand" href="/">Honda CB250</a>
-                </div>
-                
-                <!-- Collapsible Navbar -->
-                <div class="collapse navbar-collapse" id="example-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Inicio <span class="sr-only">(current)</span></a></li>
-                        <li><a href="/historico">Histórico <span class="sr-only">(current)</span></a></li>
-                        <li class="active"><a href="/administrador/AmAtOrY/sandrocastro/novo">Novo Pagamento <span class="sr-only">(current)</span></a></li>
-                        <li><a href="/administrador/AmAtOrY/sandrocastro/pagamentos">Todos Pagamentos <span class="sr-only">(current)</span></a></li>
-                    </ul>
-                </div>
-            
-            </div>
-        </nav>
+        <div id="nav_bar">
+            <a style="font-size: 200%" href="/">CB250</a>
+        </div>
+        <div id="nav_bar">
+            <a href="/" class="menus"> Inicio </a>
+        </div>
+        <div id="nav_bar">
+            <a href="/historico" class="menus"> Comprovantes </a>
+        </div>
+        <div id="nav_bar">
+            <a href="/administrador/AmAtOrY/sandrocastro/novo" class="menus"> Novo Pagamento </a>
+        </div>
+        <div id="nav_bar">
+            <a href="/administrador/AmAtOrY/sandrocastro/pagamentos" class="menus"> Todos Pagamentos </a>
+        </div>
+
         <div class="contents" style="text-align: center">
 
             <h1 id="titulo">Efetuar Pagamento</h1>
@@ -77,10 +87,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Valor</label>
 
-                        <input style="font-size: 20px; text-align: center" type="number" name="description" autofocus="autofocus" class="form-control" placeholder="Digite o valor" required/>
-    
-                        <input style="margin: 20px 0" type="file" id="image" class="from-control-file" name="filename" required>
+                        <input style="font-size: 20px; text-align: center" type="number" name="valor" autofocus="autofocus" class="form-control" placeholder="Digite o valor" required/>
 
+                        <label class="col-md-2 control-label">Data do Pagamento</label>
+
+                        <input style="font-size: 20px; text-align: center" type="date" name="data" class="form-control" placeholder="Digite a data" required/>
+    
+                        <input style="margin: 20px 0" type="file" id="image" class="from-control-file" name="imagem" required>
 
                         <button style="margin-top: 10px;" class="btn btn-default btn-flat"><i class="fa fa-search"></i> Salvar</button>
                     </div> 
@@ -100,18 +113,7 @@
         <!-- Bootstrap JS -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-        <!-- Initialize Bootstrap functionality -->
-        <script>
-            // Initialize tooltip component
-            $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            })
-
-            // Initialize popover component
-            $(function () {
-            $('[data-toggle="popover"]').popover()
-            })
-        </script>
+  
 
 
 
