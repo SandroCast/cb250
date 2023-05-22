@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Cb250</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
 
                         </div>
                         <div style="margin-left:5px; display: inline;font-size: 20px; float: left;">
-                            Pagameno recebido
+                            Pagamento recebido
 
                         </div>
                         <div style="display: inline;font-size: 15px; float: right; margin-top: 5px;">
